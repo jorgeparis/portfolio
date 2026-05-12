@@ -1,0 +1,226 @@
+/* =========================
+   GLOBAL
+========================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* =========================
+     HEADER
+  ========================= */
+.topbar {
+  padding: 20px;
+  text-align: center;
+  background: #111;
+  border-bottom: 1px solid #222;
+}
+
+/* =========================
+     GRID
+  ========================= */
+.radio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+/* =========================
+     CARD
+  ========================= */
+.radio-card {
+  background: #1a1a1a;
+  padding: 15px;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.radio-card:hover {
+  transform: translateY(-4px);
+  border-color: #00ff99;
+}
+
+.radio-card.active {
+  border-color: #00ff99;
+  box-shadow: 0 0 12px rgba(0, 255, 153, 0.3);
+}
+
+.radio-title {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.radio-play {
+  font-size: 12px;
+  color: #00ff99;
+}
+
+/* =========================
+     MINI PLAYER
+  ========================= */
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 60px;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 15px;
+
+  border-top: 1px solid #333;
+
+  transform: translateY(100%);
+  transition: 0.3s ease;
+
+  z-index: 999;
+}
+
+.mini-player.show {
+  transform: translateY(0);
+}
+
+.mini-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.mini-status {
+  font-size: 11px;
+  color: #00ff99;
+}
+
+/* BUTTON */
+.mini-btn {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #00ff99;
+  color: black;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================
+     VU METER (CLEAN)
+  ========================= */
+.vu-mini {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 18px;
+  width: 60px;
+}
+
+.vu-bar {
+  width: 6px;
+  height: 2px;
+  background: #00ff99;
+  border-radius: 2px;
+  transition: 0.08s linear;
+}
+
+/* MOBILE ONLY */
+@media (min-width: 768px) {
+  .mini-player {
+    display: none;
+  }
+}
+
+.radio-play {
+  font-size: 12px;
+  color: #00ff99;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+/* DESKTOP PLAYER BAR */
+.desktop-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 70px;
+
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+
+  border-top: 1px solid #333;
+
+  transform: translateY(100%);
+  transition: 0.3s ease;
+
+  z-index: 1000;
+}
+
+/* SHOW STATE */
+.desktop-player.show {
+  transform: translateY(0);
+}
+
+/* INFO */
+.dp-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.dp-status {
+  font-size: 11px;
+  color: #00ff99;
+}
+
+/* BUTTON */
+.dp-controls button {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #00ff99;
+  color: black;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ONLY DESKTOP */
+@media (max-width: 767px) {
+  .desktop-player {
+    display: none;
+  }
+}

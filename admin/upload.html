@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Firebase Upload Dashboard</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="shell">
+      <!-- LEFT -->
+      <div class="card upload-panel">
+        <div class="logo">⬆</div>
+
+        <h1 class="title">Upload Project</h1>
+
+        <p class="subtitle">
+          Upload telecom, networking, studio and broadcast projects directly to
+          Firebase.
+        </p>
+
+        <!-- IMAGE -->
+        <div class="upload-box" id="uploadBox">
+
+            <input
+              type="file"
+              id="imageFile"
+              accept="image/*"
+              multiple
+              hidden
+            />
+          
+            <div class="upload-ui">
+          
+              <div class="icon">⬆️</div>
+          
+              <div class="text">
+                <strong>Upload Images</strong>
+                <span>Click or drag files here</span>
+              </div>
+          
+              <div class="counter" id="fileCount">
+                No files selected
+              </div>
+          
+            </div>
+          
+          </div>
+
+        <div
+          id="previewContainer"
+          style="display: flex; flex-direction: column; gap: 10px"
+        >
+
+          <!-- THUMB STRIP -->
+          <div
+            id="thumbs"
+            style="display: flex; gap: 10px; overflow-x: auto; padding: 10px 0"
+          ></div>
+        </div>
+
+        <!-- TITLE -->
+        <div class="form-group">
+          <label class="form-label"> Project Title </label>
+
+          <input
+            type="text"
+            id="title"
+            class="input"
+            placeholder="FM Broadcast Studio"
+          />
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="form-group">
+          <label class="form-label"> Category </label>
+
+          <select id="category" class="select">
+            <option value="studio">Studio</option>
+
+            <option value="network">Network</option>
+
+            <option value="telecom">Telecom</option>
+
+            <option value="broadcast">Broadcast</option>
+          </select>
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="form-group">
+          <label class="form-label"> Country </label>
+
+          <input
+            type="text"
+            id="country"
+            class="input"
+            placeholder="Enter country name"
+          />
+        </div>
+
+        <!-- BUTTON -->
+        <button class="upload-btn" id="uploadBtn">Upload To Firebase</button>
+
+        <!-- PROGRESS -->
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="status" id="status">Waiting for upload...</div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="card preview-panel">
+        <div class="preview-header">
+          <h2 class="preview-title">Live Preview</h2>
+
+          <div class="badge">Firebase Connected</div>
+        </div>
+
+        <div
+            id="mainPreview"
+            style="
+              height: 300px;
+              background: #1a2742;
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+              color: #aaa;
+            "
+          >
+            No Image Selected
+          </div>
+
+          <div class="preview-info">
+            <div class="project-title" id="previewTitle">
+              Your Project Title
+            </div>
+
+            <div class="meta">
+              <div class="pill" id="previewCategory">Studio</div>
+
+              <div class="pill" id="previewCountry">Country</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="upload.js"></script>
+  </body>
+</html>

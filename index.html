@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamForge — IceCast / ShoutCast Studio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">Jorge<span>STREAM</span></div>
+
+        <!-- HAMBURGER -->
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- MENU -->
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="support.html">Technical Support</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="badge" onclick="toggleTheme()" style="cursor: pointer">
+      🌓 THEME
+    </div>
+    <div class="shell">
+      <!-- TOP BAR -->
+      <div class="topbar">
+        <div class="logo">
+          <div class="logo-icon">⬡</div>
+          <div>
+            <div class="logo-text">Jorge<span>STREAM</span></div>
+            <div class="logo-sub">BROADCAST STUDIO</div>
+          </div>
+        </div>
+        <div class="badge">v2.4.1 · BUILD 2026</div>
+      </div>
+
+      <!-- MAIN GRID -->
+      <div class="grid">
+        <!-- SERVER CONFIG -->
+        <div class="card server-card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 16 16" fill="currentColor">
+                <path d="M2 3h12v3H2zm0 5h12v3H2zm0 5h12v1H2z" />
+              </svg>
+              Configuração do Servidor
+            </div>
+            <div
+              style="
+                font-family: var(--mono);
+                font-size: 10px;
+                color: var(--muted);
+              "
+            >
+              ICECAST / SHOUTCAST
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="proto-tabs">
+              <div class="tab active" onclick="selectTab(this,'icecast')">
+                IceCast 2
+              </div>
+              <div class="tab" onclick="selectTab(this,'shoutcast1')">
+                ShoutCast v1
+              </div>
+              <div class="tab" onclick="selectTab(this,'shoutcast2')">
+                ShoutCast v2
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Hostname / IP</label>
+              <input
+                type="text"
+                placeholder="stream.servidor.com"
+                value="stream.example.com"
+              />
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label>Porta</label>
+                <input type="number" placeholder="8000" value="8000" />
+              </div>
+              <div class="field">
+                <label>Mount Point</label>
+                <input type="text" placeholder="/live" value="/live" />
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field">
+                <label>Username</label>
+                <input
+                  type="text"
+                  id="input-username"
+                  placeholder="source"
+                  value="source"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input
+                type="password"
+                id="input-password"
+                placeholder="••••••••"
+                value="hackme"
+              />
+            </div>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="field">
+            <label>Nome da Estação</label>
+            <input
+              type="text"
+              placeholder="Radio Alpha"
+              value="Radio Alpha FM"
+            />
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label>Género</label>
+              <input
+                type="text"
+                placeholder="House / Techno"
+                value="Electronic"
+              />
+            </div>
+            <div class="field">
+              <label>URL Público</label>
+              <input
+                type="text"
+                placeholder="https://..."
+                value="https://radioalpha.fm"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Codec / Bitrate</label>
+          </div>
+          <div class="codec-strip">
+            <!-- CODEC -->
+            <div
+              class="codec-chip active"
+              data-type="codec"
+              onclick="selectChip(this)"
+            >
+              MP3
+            </div>
+            <div
+              class="codec-chip"
+              data-type="codec"
+              onclick="selectChip(this)"
+            >
+              AAC+
+            </div>
+            <div
+              class="codec-chip"
+              data-type="codec"
+              onclick="selectChip(this)"
+            >
+              OGG
+            </div>
+            <div
+              class="codec-chip"
+              data-type="codec"
+              onclick="selectChip(this)"
+            >
+              OPUS
+            </div>
+
+            <div
+              style="width: 1px; background: var(--border); margin: 0 4px"
+            ></div>
+
+            <!-- BITRATE -->
+            <div
+              class="codec-chip"
+              data-type="bitrate"
+              onclick="selectChip(this)"
+            >
+              64k
+            </div>
+            <div
+              class="codec-chip active"
+              data-type="bitrate"
+              onclick="selectChip(this)"
+            >
+              128k
+            </div>
+            <div
+              class="codec-chip"
+              data-type="bitrate"
+              onclick="selectChip(this)"
+            >
+              192k
+            </div>
+            <div
+              class="codec-chip"
+              data-type="bitrate"
+              onclick="selectChip(this)"
+            >
+              320k
+            </div>
+          </div>
+        </div>
+
+        <!-- AUDIO INTERFACE -->
+        <div class="card audio-card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4a2 2 0 0 1-4 0V3a2 2 0 0 1 2-2zm0 11a5 5 0 0 0 5-5H11a3 3 0 0 1-6 0H3a5 5 0 0 0 5 5zm-1 1h2v2H7z"
+                />
+              </svg>
+              Interface de Áudio
+            </div>
+            <div
+              id="refresh-btn"
+              onclick="refreshDevices()"
+              style="
+                font-family: var(--mono);
+                font-size: 10px;
+                color: var(--muted);
+                cursor: pointer;
+                padding: 3px 8px;
+                border: 1px solid var(--border);
+                border-radius: 2px;
+              "
+            >
+              ↻ SCAN
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="device-list" id="device-list">
+              <!-- rendered by JS -->
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="row2">
+              <div class="field">
+                <label>Sample Rate</label>
+                <select>
+                  <option>44100 Hz</option>
+                  <option>48000 Hz</option>
+                  <option>96000 Hz</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Buffer</label>
+                <select>
+                  <option>256</option>
+                  <option selected>512</option>
+                  <option>1024</option>
+                  <option>2048</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Canais</label>
+              <select>
+                <option>Mono</option>
+                <option selected>Stereo</option>
+                <option>5.1 Surround</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- METER + STATUS (full width) -->
+        <div class="card meter-card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2zm0 1.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a.75.75 0 0 0-.75.75v2.5l1.75 1.75.53-.53-1.53-1.53V6.25A.75.75 0 0 0 8 5.5z"
+                />
+              </svg>
+              Monitor de Transmissão
+            </div>
+            <div
+              id="live-timer"
+              style="
+                font-family: var(--mono);
+                font-size: 11px;
+                color: var(--muted);
+              "
+            >
+              00:00:00
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="meter-inner">
+              <!-- LEFT: Status -->
+              <div class="status-block">
+                <div class="status-row">
+                  <span class="status-key">Estado</span>
+                  <div class="status-indicator" id="conn-status">
+                    <div class="dot idle" id="conn-dot"></div>
+                    <span id="conn-text">DESLIGADO</span>
+                  </div>
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Servidor</span>
+                  <span class="status-val" id="stat-host"
+                    >stream.example.com:8000</span
+                  >
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Protocolo</span>
+                  <span class="status-val" id="stat-proto">IceCast 2</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Codec</span>
+                  <span class="status-val" id="stat-codec">MP3 · 128k</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Ouvintes</span>
+                  <span class="status-val" id="stat-listeners">—</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Dropped</span>
+                  <span class="status-val" id="stat-dropped">—</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-key">Latência</span>
+                  <span class="status-val" id="stat-latency">—</span>
+                </div>
+
+                <div class="actions">
+                  <button
+                    class="btn btn-primary"
+                    id="connect-btn"
+                    onclick="toggleConnect()"
+                  >
+                    <span id="btn-icon">▶</span>
+                    <span id="btn-label">CONECTAR</span>
+                  </button>
+                </div>
+                <div style="margin-top: 8px">
+                  <button
+                    class="btn btn-secondary"
+                    style="width: 100%; padding: 8px"
+                    onclick="testConnection()"
+                  >
+                    TESTAR LIGAÇÃO
+                  </button>
+                </div>
+              </div>
+
+              <!-- RIGHT: VU + Waveform -->
+              <div>
+                <div class="vu-wrap">
+                  <div class="vu-label">
+                    <span>VU METER</span>
+                    <span id="peak-hold" style="color: var(--muted)"
+                      >PEAK —</span
+                    >
+                  </div>
+                  <div class="channels">
+                    <div class="channel">
+                      <div class="ch-tag">L</div>
+                      <div class="bar-track">
+                        <div class="bar-fill" id="vu-l" style="width: 0%"></div>
+                      </div>
+                      <div class="db-val" id="db-l">—</div>
+                    </div>
+                    <div class="channel">
+                      <div class="ch-tag">R</div>
+                      <div class="bar-track">
+                        <div class="bar-fill" id="vu-r" style="width: 0%"></div>
+                      </div>
+                      <div class="db-val" id="db-r">—</div>
+                    </div>
+                  </div>
+                  <div class="tick-row">
+                    <div class="tick-spacer"></div>
+                    <div class="ticks">
+                      <span class="tick">-60</span
+                      ><span class="tick">-40</span>
+                      <span class="tick">-20</span
+                      ><span class="tick">-12</span> <span class="tick">-6</span
+                      ><span class="tick">-3</span>
+                      <span class="tick" style="color: var(--red)">0</span>
+                    </div>
+                    <div style="width: 44px"></div>
+                  </div>
+                </div>
+
+                <div class="wave-wrap">
+                  <div class="wave-label">FORMA DE ONDA</div>
+                  <div class="wave-canvas-wrap">
+                    <canvas id="waveform"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /grid -->
+    </div>
+    <script src="script/script.js"></script>
+  </body>
+</html>

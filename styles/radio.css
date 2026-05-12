@@ -1,0 +1,91 @@
+/* BACKGROUND */
+#radio-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px) brightness(0.25);
+  z-index: -1;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* LEFT PANEL */
+.station-panel {
+  overflow-y: auto;
+  border-right: 1px solid #333;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* STATION CARD */
+.station-card {
+  position: relative;
+  height: 90px;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 1px solid #222;
+}
+
+.station-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.station-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  filter: brightness(0.5);
+}
+
+.station-info {
+  position: relative;
+  padding: 10px;
+  color: white;
+  z-index: 2;
+}
+
+/* MAIN PANEL */
+.player-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* NOW PLAYING */
+.now-playing {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.controls button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background: #ff0040;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* VU METER */
+.vu-container {
+  width: 60%;
+  height: 18px;
+  background: #111;
+  border: 1px solid #333;
+}
+
+#vu-meter {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00ff99, #ffcc00, #ff0040);
+  transition: 0.1s;
+}

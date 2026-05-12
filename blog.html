@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Hub</title>
+
+    <link rel="stylesheet" href="styles/blog.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <h1>📻 Radio Hub</h1>
+    </header>
+
+    <!-- RADIO GRID -->
+    <div class="radio-grid" id="radio-grid"></div>
+
+    <!-- MINI PLAYER (Spotify style) -->
+    <div class="mini-player" id="mini-player">
+      <div class="mini-info">
+        <div class="mini-title" id="mini-title">No station</div>
+        <div class="mini-status" id="mini-status">Idle</div>
+      </div>
+
+      <!-- VU METER -->
+      <div class="vu-mini">
+        <div class="vu-bar" id="vu-l"></div>
+        <div class="vu-bar" id="vu-r"></div>
+      </div>
+
+      <button class="mini-btn" id="mini-btn">▶</button>
+    </div>
+
+    <!-- DESKTOP PLAYER BAR -->
+    <div class="desktop-player" id="desktop-player">
+      <div class="dp-info">
+        <div class="dp-title" id="dp-title">No station</div>
+        <div class="dp-status" id="dp-status">Idle</div>
+      </div>
+
+      <div class="dp-controls">
+        <button id="dp-btn">▶</button>
+      </div>
+    </div>
+
+    <script src="script/blog.js"></script>
+  </body>
+</html>
